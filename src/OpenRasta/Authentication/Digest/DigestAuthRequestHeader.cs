@@ -142,7 +142,7 @@ namespace OpenRasta.Authentication.Digest
         {
             credentials = null;
 
-            if (string.IsNullOrWhiteSpace(value)) return false;
+            if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(value.Trim())) return false;
 
             if (!value.ToUpper().StartsWith(SchemeNameWithSpace)) return false;
 

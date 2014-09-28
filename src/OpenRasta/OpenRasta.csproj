@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OpenRasta</RootNamespace>
     <AssemblyName>OpenRasta</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LinqBridge">
+      <HintPath>..\..\packages\LinqBridge.1.3.0\lib\net20\LinqBridge.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -60,7 +63,6 @@
     <Compile Include="Binding\KeyedValuesBinderAttribute.cs" />
     <Compile Include="Binding\KeyedValues`1.cs" />
     <Compile Include="Binding\ValueConverter.cs" />
-    <Compile Include="Codecs\application\json\JsonDataContractCodec.cs" />
     <Compile Include="Codecs\application\octet-stream\ApplicationOctetStreamCodec.cs" />
     <Compile Include="Codecs\application\x-www-form-urlencoded\AbstractApplicationXWwwFormUrlencodedCodec.cs" />
     <Compile Include="Codecs\application\x-www-form-urlencoded\ApplicationXWwwFormUrlencodedKeyedValuesCodec.cs" />
@@ -68,7 +70,6 @@
     <Compile Include="Codecs\application\xhtml+xml\OperationResultCodec.cs" />
     <Compile Include="Codecs\application\xhtml+xml\OperationResultPage.cs" />
     <Compile Include="Codecs\application\xml\XmlCodec.cs" />
-    <Compile Include="Codecs\application\xml\XmlDataContractCodec.cs" />
     <Compile Include="Codecs\application\xml\XmlSerializerCodec.cs" />
     <Compile Include="Codecs\Codec.cs" />
     <Compile Include="Codecs\CodecExtensions.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Collections\CollectionExtensions.cs" />
     <Compile Include="Collections\DictionaryBase.cs" />
     <Compile Include="Collections\EnumerableExtensions.cs" />
+    <Compile Include="Collections\HashSet.cs" />
     <Compile Include="Collections\ItemChanged.cs" />
     <Compile Include="Collections\NotifyCollection.cs" />
     <Compile Include="Collections\NullBehaviorDictionary.cs" />
@@ -141,7 +143,6 @@
     <Compile Include="Configuration\HasExtensions.cs" />
     <Compile Include="Configuration\IConfigurationSource.cs" />
     <Compile Include="Configuration\IDependencyRegistrar.cs" />
-    <Compile Include="Configuration\JsonConfigurationExtensions.cs" />
     <Compile Include="Configuration\LegacyHasExtensions.cs" />
     <Compile Include="Configuration\MetaModel\CodecModel.cs" />
     <Compile Include="Configuration\MetaModel\ConfigurationModel.cs" />
@@ -162,10 +163,8 @@
     <Compile Include="Configuration\OpenRastaConfiguration.cs" />
     <Compile Include="Configuration\OpenRastaConfigurationException.cs" />
     <Compile Include="Configuration\UsesExtensions.cs" />
-    <Compile Include="Configuration\XmlConfigurationExtensions.cs" />
     <Compile Include="Configuration\XmlSeralizerConfiguration.cs" />
     <Compile Include="Data\ChangeSet`1.cs" />
-    <Compile Include="Data\PagedData.cs" />
     <Compile Include="Diagnostics\DebuggerLoggingTraceListener.cs" />
     <Compile Include="Diagnostics\ILogger.cs" />
     <Compile Include="Diagnostics\LogCategoryAttribute.cs" />
@@ -228,7 +227,6 @@
     <Compile Include="IO\StreamExtensions.cs" />
     <Compile Include="IO\WrapperStream.cs" />
     <Compile Include="NullableExtensions.cs" />
-    <Compile Include="ObjectPaths.cs" />
     <Compile Include="OperationModel\CodecSelectors\RequestCodecSelector.cs" />
     <Compile Include="OperationModel\Diagnostics\OperationModelLogSource.cs" />
     <Compile Include="OperationModel\Filters\HttpMethodOperationFilter.cs" />
@@ -299,16 +297,6 @@
     <Compile Include="Pipeline\PipelineStage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecursionException.cs" />
-    <Compile Include="Reflection\ExpressionComparer.cs" />
-    <Compile Include="Reflection\ExpressionExtensions.cs" />
-    <Compile Include="Reflection\ExpressionVisitor.cs" />
-    <Compile Include="Reflection\LocalReferenceResolver.cs" />
-    <Compile Include="Reflection\PropertyPath.cs" />
-    <Compile Include="Reflection\PropertyPathExpressionTree.cs" />
-    <Compile Include="Reflection\PropertyPathForInstance.cs" />
-    <Compile Include="Reflection\PropertyPathForType.cs" />
-    <Compile Include="Reflection\PropertyPathVisitor.cs" />
-    <Compile Include="Reflection\ScopedDictionary.cs" />
     <Compile Include="Resources\Files.Designer.cs" />
     <Compile Include="Security\Credentials.cs" />
     <Compile Include="Security\DigestHeader.cs" />
@@ -451,7 +439,6 @@
     <Compile Include="Web\Markup\Elements\Element.cs" />
     <Compile Include="Web\Markup\Elements\GenericElement.cs" />
     <Compile Include="Web\Markup\Elements\TextNode.cs" />
-    <Compile Include="Web\Markup\ExpressionTreeXhtmlExtensions.cs" />
     <Compile Include="Web\Markup\FormModuleExtensions.cs" />
     <Compile Include="Web\Markup\FormsExtensions.cs" />
     <Compile Include="Web\Markup\IAttributesCoreExtensions.cs" />
@@ -523,6 +510,10 @@
     <None Include="openrasta-core.nuspec">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reflection\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
