@@ -205,6 +205,7 @@
     <Compile Include="Hosting\HostManager.cs" />
     <Compile Include="Hosting\HttpListener\AppDomainHost.cs" />
     <Compile Include="Hosting\HttpListener\HttpListenerCommunicationContext.cs" />
+    <Compile Include="Hosting\HttpListener\HttpListenerContextSession.cs" />
     <Compile Include="Hosting\HttpListener\HttpListenerHost.cs" />
     <Compile Include="Hosting\HttpListener\HttpListenerRequest.cs" />
     <Compile Include="Hosting\HttpListener\HttpListenerResponse.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Hosting\IHost.cs" />
     <Compile Include="Hosting\IncomingRequestEventArgs.cs" />
     <Compile Include="Hosting\InMemory\InMemoryCommunicationContext.cs" />
+    <Compile Include="Hosting\InMemory\InMemoryContextSession.cs" />
     <Compile Include="Hosting\InMemory\InMemoryContextStore.cs" />
     <Compile Include="Hosting\InMemory\InMemoryHost.cs" />
     <Compile Include="Hosting\InMemory\InMemoryRequest.cs" />
