@@ -128,6 +128,7 @@ namespace OpenRasta.Hosting.HttpListener
         public virtual bool ConfigureRootDependencies(IDependencyResolver resolver)
         {
             resolver.AddDependency<IContextStore, AmbientContextStore>(DependencyLifetime.Singleton);
+            resolver.AddDependencyInstance<IContextSession>(new AmbientContextSession(), DependencyLifetime.Singleton);
             return true;
         }
 

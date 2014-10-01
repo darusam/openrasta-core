@@ -83,6 +83,7 @@ namespace OpenRasta.Hosting.InMemory
         {
             CheckNotDisposed();
             resolver.AddDependencyInstance<IContextStore>(new InMemoryContextStore());
+            resolver.AddDependencyInstance<IContextSession>(new AmbientContextSession(), DependencyLifetime.Singleton);
             if (_configuration != null)
                 Resolver.AddDependencyInstance<IConfigurationSource>(_configuration, DependencyLifetime.Singleton);
             return true;

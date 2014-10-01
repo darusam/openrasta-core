@@ -199,6 +199,7 @@
     <Compile Include="Handlers\HandlerRepository.cs" />
     <Compile Include="Handlers\IHandlerRepository.cs" />
     <Compile Include="Hosting\AmbientContext.cs" />
+    <Compile Include="Hosting\AmbientContextSession.cs" />
     <Compile Include="Hosting\AmbientContextStore.cs" />
     <Compile Include="Hosting\ContextScope.cs" />
     <Compile Include="Hosting\HostManager.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Hosting\HttpListener\HttpListenerHost.cs" />
     <Compile Include="Hosting\HttpListener\HttpListenerRequest.cs" />
     <Compile Include="Hosting\HttpListener\HttpListenerResponse.cs" />
+    <Compile Include="Hosting\IContextSession.cs" />
     <Compile Include="Hosting\IHost.cs" />
     <Compile Include="Hosting\IncomingRequestEventArgs.cs" />
     <Compile Include="Hosting\InMemory\InMemoryCommunicationContext.cs" />
